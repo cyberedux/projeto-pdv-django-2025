@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Produtos</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+    <script>
+        
+    </script>
+</head>
+<body>
+    <h1>Produtos</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Descricao</th>
+                <th>Categoria</th>
+                <th>Custo</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for produto in produtos %}
+                <tr>
+                    <td>{{ produto.descricao }}</td>
+                    <td>{{ produto.categoria }}</td>
+                    <td>R$ {{ produto.custo }}</td>
+                    <td>R$ {{ produto.valor }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="4">Sem produtos.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
