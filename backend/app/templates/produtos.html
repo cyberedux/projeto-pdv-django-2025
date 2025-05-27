@@ -1,59 +1,44 @@
+{% load static %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" class="dark">
 <head>
     <meta charset="UTF-8">
-    <title>Produtos</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        th, td {
-            padding: 12px;
-            border: 1px solid #ccc;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f4f4f4;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-    </style>
-    <script>
-        
-    </script>
+    <title>Lista de Produtos</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Produtos</h1>
+<body class="bg-gray-900 text-gray-100">
 
-    <table>
-        <thead>
-            <tr>
-                <th>Descricao</th>
-                <th>Categoria</th>
-                <th>Custo</th>
-                <th>Valor</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for produto in produtos %}
-                <tr>
-                    <td>{{ produto.descricao }}</td>
-                    <td>{{ produto.categoria }}</td>
-                    <td>R$ {{ produto.custo }}</td>
-                    <td>R$ {{ produto.valor }}</td>
-                </tr>
-            {% empty %}
-                <tr>
-                    <td colspan="4">Sem produtos.</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-6 text-center">Tabela de Produtos</h1>
+
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-gray-800 shadow-md rounded-lg overflow-hidden">
+                <thead class="bg-gray-700 text-gray-200 text-left">
+                    <tr>
+                        <th class="py-3 px-6">Descrição</th>
+                        <th class="py-3 px-6">Valor</th>
+                        <th class="py-3 px-6">Custo</th>
+                        <th class="py-3 px-6">Categoria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for produto in produtos %}
+                        <tr class="border-b border-gray-700 hover:bg-gray-700">
+                            <td class="py-4 px-6">{{ produto.descricao }}</td>
+                            <td class="py-4 px-6">{{ produto.categoria }}</td>
+                            <td class="py-4 px-6">R$ {{ produto.valor }}</td>
+                            <td class="py-4 px-6">R$ {{ produto.custo }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="4" class="py-4 px-6 text-center text-gray-400">Nenhum produto cadastrado.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 </body>
 </html>

@@ -3,7 +3,8 @@
 ### Instalar Django (pipenv)
 De dentro da pasta `backend` rode para instalar as bibliotecas utilizadas:
 ```
-pipenv install
+pip install --user pipenv
+python -m pipenv install
 ```
 
 Para entrar no ambiente virtual:
