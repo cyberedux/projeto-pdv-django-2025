@@ -19,9 +19,12 @@ from django.urls import path
 
 from app.views import produtos_view, home_view, vendas_view
 
+from app.api import api 
+
 urlpatterns = [
     path('', home_view),
     path('admin/', admin.site.urls),
     path('produtos/', produtos_view),
     path('vendas/', vendas_view),
+    path('api/', api.urls)
 ]

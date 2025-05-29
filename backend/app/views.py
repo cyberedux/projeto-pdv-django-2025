@@ -24,6 +24,7 @@ def produtos_view(request):
     return render(request, 'produtos.html', {'produtos': produtos})
 
 def vendas_view(request):
+    # equivalente ao SELECT * FROM Venda JOIN ... ProdutosVendidos
     vendas = Venda.objects.prefetch_related('produtos_vendidos__produto')
     # vendas = Venda.objects.all()
 
