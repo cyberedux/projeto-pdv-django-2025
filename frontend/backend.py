@@ -1,7 +1,7 @@
 import requests
 
-HOST_BACKEND = 'http://192.168.15.74:8000'
-# HOST_BACKEND = 'http://127.0.0.1:8000' # localhost
+# HOST_BACKEND = 'http://192.168.15.74:8000'
+HOST_BACKEND = 'http://localhost:8000' # localhost
 
 def get_backend(caminho):
     url = HOST_BACKEND + caminho
