@@ -35,3 +35,10 @@ class VendaJSON(ModelSchema):
         model = Venda
         fields = '__all__'
 
+class PostProdutoVendidoJSON(Schema):
+    id: int # id de Produto
+    quantidade: float 
+
+class PostVendaJSON(Schema):
+    formaDePagamento: int # id de FormaDePagamento
+    produtos: list[PostProdutoVendidoJSON]
